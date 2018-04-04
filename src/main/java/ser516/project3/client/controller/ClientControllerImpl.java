@@ -114,10 +114,9 @@ public class ClientControllerImpl implements ClientControllerInterface {
 		public void actionPerformed(ActionEvent e) {
 			if(serverDialog == null) {
 				serverDialog = new ServerView();
-				EventQueue.invokeLater(serverDialog);
+				serverDialog.setVisible(true);
 			} else {
 				serverDialog.setVisible(true);
-				EventQueue.invokeLater(serverDialog);
 			}
 		}
 	}

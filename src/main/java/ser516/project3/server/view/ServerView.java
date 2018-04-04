@@ -17,18 +17,14 @@ import org.apache.log4j.Logger;
  *
  */
 @SuppressWarnings("serial")
-public class ServerView extends JDialog implements Runnable {
+public class ServerView extends JDialog {
 	final static Logger logger = Logger.getLogger(ServerView.class);
-
-	ProcessBuilder pb = new ProcessBuilder(
-			"java", "-cp", "build/classes", "ser516.project3.server.view.ServerView");
-	private volatile Process proc;
 
 	/**
 	 * Constructor to initialize all the components of the server application
 	 */
 	public ServerView() {
-		//setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
 		setTitle("Server");
 		setMinimumSize(new Dimension(500, 800));
 		setLayout(new BorderLayout());
@@ -43,22 +39,6 @@ public class ServerView extends JDialog implements Runnable {
 				logger.info("server window closed");
 			}
 		});
-	}
-
-	@Override
-	public void run() {
-		try {
-			proc = pb.start();
-			proc.waitFor();
-		} catch (IOException | InterruptedException ex) {
-			ex.printStackTrace(System.err);
-		}
-		EventQueue.invokeLater(this::reset);
-	}
-
-	private void reset() {
-		proc = null;
-
 	}
 
 }

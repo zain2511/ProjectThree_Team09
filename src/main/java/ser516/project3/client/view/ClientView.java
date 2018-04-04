@@ -62,6 +62,7 @@ public class ClientView extends JFrame {
 
 		add(splitPane);
 		setJMenuBar(menuBar);
+		setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
 		setVisible(true);
 	}
 
