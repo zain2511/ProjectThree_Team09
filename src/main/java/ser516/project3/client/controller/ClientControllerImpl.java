@@ -12,6 +12,7 @@ import ser516.project3.model.HeaderModel;
 import ser516.project3.model.PerformanceMetricModel;
 import ser516.project3.server.view.ServerView;
 
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -113,8 +114,10 @@ public class ClientControllerImpl implements ClientControllerInterface {
 		public void actionPerformed(ActionEvent e) {
 			if(serverDialog == null) {
 				serverDialog = new ServerView();
+				EventQueue.invokeLater(serverDialog);
 			} else {
 				serverDialog.setVisible(true);
+				EventQueue.invokeLater(serverDialog);
 			}
 		}
 	}
